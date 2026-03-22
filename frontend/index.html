@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>AI语音助手</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- 顶部温暖导航 -->
+    <div class="header">
+        <div class="header-title">🤖 AI语音助手</div>
+    </div>
+
+    <!-- 聊天区域 -->
+    <div class="chat-container" id="chatContainer">
+        <div class="message message-ai">
+            <div class="message-bubble ai-bubble">
+                👋 叔叔阿姨好！按住下方大按钮说话，我帮您点外卖～
+            </div>
+        </div>
+    </div>
+
+    <!-- 录音状态指示器 -->
+    <div class="recording-indicator" id="recordingIndicator">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <!-- 底部操作区 -->
+    <div class="footer">
+        <div class="status" id="statusText"></div>
+        <button id="recordButton" class="record-btn">
+            <svg class="record-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.42 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/>
+            </svg>
+            <span>按住说话</span>
+        </button>
+    </div>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
