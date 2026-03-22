@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Arial", sans-serif;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --record-red: #ef4444;
+    --bg-gradient: linear-gradient(135deg, #f0f9ff 0%, #fef3c7 100%);
+    --card-bg: #ffffff;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --bubble-user: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    --bubble-ai: #ffffff;
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-btn: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+/* 顶部温暖导航 */
+.header {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 22px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-soft);
+}
+
+.header-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* 聊天区域 */
+.chat-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    font-size: 22px;
+}
+
+/* 消息气泡 */
+.message {
+    margin-bottom: 24px;
+    display: flex;
+    animation: fadeInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-user {
+    justify-content: flex-end;
+}
+
+.message-ai {
+    justify-content: flex-start;
+}
+
+.message-bubble {
+    max-width: 80%;
+    padding: 16px 20px;
+    border-radius: 24px;
+    font-size: 22px;
+    line-height: 1.6;
+    box-shadow: var(--shadow-soft);
+}
+
+.user-bubble {
+    background: var(--bubble-user);
+    color: #fff;
+    border-bottom-right-radius: 6px;
+}
+
+.ai-bubble {
+    background: var(--bubble-ai);
+    color: var(--text-primary);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom-left-radius: 6px;
+}
+
+/* 录音声波动画（更生动） */
+.recording-indicator {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+}
+.recording-indicator.active {
+    display: flex;
+}
+.wave {
+    width: 8px;
+    height: 32px;
+    background: var(--record-red);
+    border-radius: 4px;
+    animation: wave 1s infinite ease-in-out;
+}
+.wave:nth-child(2) { animation-delay: 0.2s; }
+.wave:nth-child(3) { animation-delay: 0.4s; }
+@keyframes wave {
+    0%,100% { transform: scaleY(0.5); }
+    50% { transform: scaleY(1.4); }
+}
+
+/* 底部操作区 */
+.footer {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 24px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.status {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    min-height: 30px;
+}
+
+/* 超大适老化按钮（质感升级） */
+.record-btn {
+    width: 100%;
+    height: 90px;
+    background: var(--bubble-user);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    touch-action: manipulation;
+    cursor: pointer;
+    box-shadow: var(--shadow-btn);
+    transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.record-btn:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+.record-btn.recording {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+}
+
+.record-icon {
+    width: 32px;
+    height: 32px;
+}
+
+/* 滚动条美化 */
+.chat-container::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+.chat-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+}
